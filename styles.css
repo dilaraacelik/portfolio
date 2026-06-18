@@ -88,6 +88,13 @@ nav {
 }
 .nav-links a:hover { color: var(--accent); }
 .nav-links a.active { color: var(--accent); }
+#lang-btn {
+  background: none; border: 1px solid var(--fg); color: var(--fg);
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em;
+  padding: 4px 10px; border-radius: 4px; cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+#lang-btn:hover { color: var(--accent); border-color: var(--accent); }
 
 section { padding: 7rem 3rem; max-width: 1100px; margin: 0 auto; }
 
@@ -98,7 +105,7 @@ section { padding: 7rem 3rem; max-width: 1100px; margin: 0 auto; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  align-items: end;
+  align-items: center;
 }
 .hero-eyebrow {
   font-family: 'DM Mono', monospace;
@@ -226,7 +233,7 @@ section { padding: 7rem 3rem; max-width: 1100px; margin: 0 auto; }
 .project-card:hover .project-arrow { color: var(--accent); transform: translate(2px,-2px); }
 
 /* SKILLS */
-.skills-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
+.skills-layout { display: grid; gap: 4rem; align-items: start; }
 .skills-intro { color: var(--muted); font-size: 14px; line-height: 1.8; }
 .skills-groups { display: flex; flex-direction: column; gap: 2.5rem; }
 .skill-group-label {

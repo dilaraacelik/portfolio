@@ -12,29 +12,30 @@
 <nav>
   <a href="#hero" class="nav-logo">DÇ</a>
   <ul class="nav-links">
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#projects" data-i18n="nav-projects">Projects</a></li>
+    <li><a href="#experience" data-i18n="nav-experience">Experience</a></li>
+    <li><a href="#skills" data-i18n="nav-skills">Skills</a></li>
+    <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
   </ul>
+  <button id="lang-btn" onclick="toggleLang()">TR</button>
 </nav>
 
 <section id="hero" style="max-width:1100px; margin:0 auto;">
   <div>
-    <div class="hero-eyebrow">— AVAILABLE FOR OPPORTUNITIES</div>
+    <div class="hero-eyebrow" data-i18n="hero-eyebrow">— AVAILABLE FOR OPPORTUNITIES</div>
     <h1 class="hero-name">Dilara<br /><span>Çelik</span></h1>
-    <p class="hero-title">// Fullstack Developer · Ankara, TR</p>
-    <p class="hero-bio">Backend leaning fullstack developer. I build tools that solve real problems, from AI powered SaaS products to client facing interfaces. Currently working on FreelanceKit.</p>
+    <p class="hero-title">// Software Engineer · Ankara, TR</p>
+    <!-- <p class="hero-bio">Backend leaning fullstack developer. I build tools that solve real problems, from AI powered SaaS products to client facing interfaces. Currently working on FreelanceKit.</p> -->
     <div class="hero-cta">
-      <a href="#projects" class="btn-primary">See My Work</a>
-      <a href="#contact" class="btn-ghost">Get in touch →</a>
+      <a href="#projects" class="btn-primary" data-i18n="btn-primary">See My Work</a>
+      <a href="#contact" class="btn-ghost" data-i18n="btn-ghost">Get in touch →</a>
     </div>
   </div>
   <div class="hero-right">
-    <div class="availability">
+    <!-- <div class="availability">
       <span class="dot"></span>
       Open to backend / fullstack roles — starting now
-    </div>
+    </div> -->
     <div class="hero-image-wrap">
       <img src="photo.png" alt="Dilara Çelik" class="hero-image" />
       <svg class="puzzle-frame" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -104,14 +105,14 @@
 <section id="projects">
   <div class="section-header">
     <span class="section-num">01</span>
-    <h2 class="section-title">Selected Projects</h2>
+    <h2 class="section-title" data-i18n="title-projects">Projects</h2>
   </div>
   <div class="projects-grid">
     <div class="project-card">
       <span class="project-arrow">↗</span>
       <div class="project-tag">Web App · AI</div>
       <div class="project-name">FreelanceKit</div>
-      <div class="project-desc">AI-powered proposal generator and client tracker for freelancers. Cuts proposal writing time by 80%.</div>
+      <div class="project-desc" data-i18n="desc-freelancekit">AI-powered proposal generator and client tracker for freelancers. Cuts proposal writing time by 80%.</div>
       <div class="project-stack">
         <span class="chip">React</span><span class="chip">Node.js</span><span class="chip">PostgreSQL</span><span class="chip">Prisma</span><span class="chip">Anthropic API</span><span class="chip">Zod</span><span class="chip">JWT Authentication</span>
       </div>
@@ -120,57 +121,45 @@
       <span class="project-arrow">↗</span>
       <div class="project-tag">Desktop App · AI</div>
       <div class="project-name">Shoto</div>
-      <div class="project-desc">Desktop tool for AI-generated YouTube Shorts content. Built with Tauri + FastAPI sidecar architecture.</div>
+      <div class="project-desc" data-i18n="desc-shoto">Desktop tool for AI-generated YouTube Shorts content. Built with Tauri + FastAPI sidecar architecture.</div>
       <div class="project-stack">
         <span class="chip">Tauri v2</span><span class="chip">React</span><span class="chip">FastAPI</span><span class="chip">Python</span>
       </div>
     </div>
-    <div class="project-card">
+    <a class="project-card" href="https://github.com/dilaraacelik/mood-tracker" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
       <span class="project-arrow">↗</span>
       <div class="project-tag">Web App</div>
       <div class="project-name">Mood Tracker</div>
-      <div class="project-desc">Full-stack mood tracking web application that allows users to log daily emotions, view analytics, and track emotional patterns over time. Built with Next.js, TypeScript, and Supabase.</div>
+      <div class="project-desc" data-i18n="desc-moodtracker">Full-stack mood tracking web application that allows users to log daily emotions, view analytics, and track emotional patterns over time. Built with Next.js, TypeScript, and Supabase.</div>
       <div class="project-stack">
         <span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Supabase</span>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="section-header">
-    <span class="section-num">02</span>
-    <h2 class="section-title">Skills & Stack</h2>
-  </div>
-  <div class="skills-layout">
-    <div class="skills-intro">
-      <p>I work across the full stack with a preference for the backend. I enjoy designing systems before writing code.</p>
-    </div>
-    <div class="skills-groups">
-      <div>
-        <div class="skill-group-label">// Languages</div>
-        <div class="skills-tags">
-          <span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span><span class="skill-tag">Python</span><span class="skill-tag">SQL</span>
-        </div>
+    </a>
+    <a class="project-card" href="https://github.com/dilaraacelik/recommendation-website" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
+      <span class="project-arrow">↗</span>
+      <div class="project-tag">Web App · AI</div>
+      <div class="project-name">Recommendation Website</div>
+      <div class="project-desc" data-i18n="desc-recommendation">Content-based recommendation system for books, series, and movies. Users get personalized suggestions based on item similarity — AI-powered filtering with no collaborative data required.</div>
+      <div class="project-stack">
+        <span class="chip">Python</span><span class="chip">React</span><span class="chip">TMDB API</span><span class="chip">Jupyter Notebook</span><span class="chip">Content-Based Filtering</span><span class="chip">Machine Learning</span>
       </div>
-      <div>
-        <div class="skill-group-label">// Frontend</div>
-        <div class="skills-tags">
-          <span class="skill-tag">React</span><span class="skill-tag">Next.js</span><span class="skill-tag">HTML/CSS</span><span class="skill-tag">Tailwind</span>
-        </div>
+    </a>
+    <a class="project-card" href="https://github.com/ryntml/MoodFit" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
+      <span class="project-arrow">↗</span>
+      <div class="project-tag">Web App · AI</div>
+      <div class="project-name">MoodFit</div>
+      <div class="project-desc" data-i18n="desc-moodfit">AI-powered outfit assistant that recommends outfits based on mood, weather, activity, and social context. Integrates Google Gemini AI and real-time weather data to suggest personalized combinations.</div>
+      <div class="project-stack">
+        <span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Flask</span><span class="chip">Python</span><span class="chip">Supabase</span><span class="chip">Google Gemini AI</span><span class="chip">Google Custom Search API</span><span class="chip">OpenWeatherMap API</span><span class="chip">LangChain</span><span class="chip">Framer Motion</span>
       </div>
-      <div>
-        <div class="skill-group-label">// Backend & Infra</div>
-        <div class="skills-tags">
-          <span class="skill-tag">Node.js</span><span class="skill-tag">Express</span><span class="skill-tag">Django</span><span class="skill-tag">FastAPI</span>
-          <span class="skill-tag">PostgreSQL</span><span class="skill-tag">RESTful APIs</span><span class="skill-tag">Docker</span><span class="skill-tag">CI/CD</span>
-        </div>
-      </div>
-      <div>
-        <div class="skill-group-label">// AI & Data</div>
-        <div class="skills-tags">
-          <span class="skill-tag">OpenAI API</span><span class="skill-tag">Big Data</span><span class="skill-tag">Data Engineering</span>
-        </div>
+    </a>
+    <div class="project-card">
+      <span class="project-arrow">↗</span>
+      <div class="project-tag">Research · AI · TÜBİTAK 2209-B</div>
+      <div class="project-name">Gökizci</div>
+      <div class="project-desc" data-i18n="desc-gokizci">Anomaly detection system for moving drone footage. Predicts future frames via a CNN Encoder–Transformer–Decoder pipeline and scores anomalies through a GAN Discriminator. Trained on VisDrone, UAV Benchmark, and ERA datasets — achieving 0.974 precision and 0.900 PR AUC across 4,762 video sequences.</div>
+      <div class="project-stack">
+        <span class="chip">Python</span><span class="chip">TensorFlow</span><span class="chip">CNN</span><span class="chip">Transformer</span><span class="chip">GAN</span><span class="chip">Flask</span><span class="chip">Next.js</span><span class="chip">Socket.IO</span><span class="chip">CUDA</span>
       </div>
     </div>
   </div>
@@ -178,32 +167,110 @@
 
 <section id="experience">
   <div class="section-header">
-    <span class="section-num">03</span>
-    <h2 class="section-title">Experience</h2>
+    <span class="section-num">02</span>
+    <h2 class="section-title" data-i18n="title-experience">Experience</h2>
   </div>
   <div class="exp-list">
     <div class="exp-item">
-      <div class="exp-period">2023 — 2025</div>
+      <div class="exp-period">Oct 2025 — Apr 2026</div>
       <div>
-        <div class="exp-role">Partner Support Developer</div>
-        <div class="exp-company">Insider · İstanbul</div>
-        <div class="exp-desc">Delivered HTML/CSS/JS customizations for 50+ partner clients, handled A/B testing, partner communication, and technical integrations across a martech SaaS platform.</div>
+        <div class="exp-role">Software Developer (Partner-Support)</div>
+        <div class="exp-company">Insider One · Istanbul</div>
+        <ul class="exp-desc" data-i18n-html="exp-insider">
+          <li>Conducted requirements analysis with 500+ external partners, translating business needs into technical specifications and driving 20+ campaign integrations end-to-end using HTML, CSS, and JavaScript.</li>
+          <li>Built a task grooming automation using TypeScript to streamline sprint planning workflows, reducing manual overhead for the team.</li>
+          <li>Identified and resolved production-level UI and behavioral issues, reducing critical user flow errors by 30% and improving overall product stability.</li>
+          <li>Implemented personalized content experiences using client-side data, cookie-based logic, and API integrations; supported 10+ A/B tests, contributing to a 10–15% increase in campaign CTR.</li>
+          <li>Acted as primary technical point of contact between internal teams and external stakeholders, ensuring alignment on scope, timelines, and delivery.</li>
+        </ul>
       </div>
     </div>
     <div class="exp-item">
-      <div class="exp-period">2022</div>
+      <div class="exp-period">Jan 2025 — Jun 2025</div>
       <div>
-        <div class="exp-role">Big Data Engineering Intern</div>
-        <div class="exp-company">— · Ankara</div>
-        <div class="exp-desc">Worked on data pipeline engineering and big data tooling.</div>
+        <div class="exp-role">Software Engineer</div>
+        <div class="exp-company">Blaq · Ankara</div>
+        <ul class="exp-desc" data-i18n-html="exp-blaq">
+          <li>Served as the primary developer on a UK-based web application used by 50+ organizations, managing requirements gathering, technical decisions, and delivery in direct collaboration with the client.</li>
+          <li>Built two full-stack projects end-to-end using React, Next.js, Django REST Framework, and PostgreSQL covering API design, data modeling, and frontend implementation.</li>
+          <li>Developed browser extensions focused on usability improvements, iterating on user feedback to enhance experience and performance.</li>
+        </ul>
       </div>
     </div>
     <div class="exp-item">
-      <div class="exp-period">Freelance</div>
+      <div class="exp-period">Jul 2025</div>
       <div>
-        <div class="exp-role">Fullstack Developer</div>
-        <div class="exp-company">Part-time projects</div>
-        <div class="exp-desc">Built fullstack applications using React, Next.js, and Django for various clients.</div>
+        <div class="exp-role">Big Data Intern</div>
+        <div class="exp-company">Treomind · Ankara</div>
+        <ul class="exp-desc" data-i18n-html="exp-treomind">
+          <li>Built and automated ETL pipelines using PySpark and Apache Airflow, covering data cleaning, transformation, and workflow scheduling.</li>
+          <li>Conducted exploratory data analysis using SQL to support data integrity assessments across pipeline outputs.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-period">May 2022 — Jul 2023</div>
+      <div>
+        <div class="exp-role">Chairwoman</div>
+        <div class="exp-company">Gazi AI Community (Student Club) · Ankara</div>
+        <ul class="exp-desc" data-i18n-html="exp-gazi">
+          <li>Grew the community to 500+ members; delivered technical training sessions on Convolutional Neural Networks (CNNs) as an instructor.</li>
+          <li>Secured sponsorships and organized the community's first large-scale event.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title" data-i18n="title-skills">Skills & Stack</h2>
+  </div>
+  <div class="skills-layout">
+    <div class="skills-groups">
+      <div>
+        <div class="skill-group-label" data-i18n="grp-spoken">// Spoken Languages</div>
+        <div class="skills-tags">
+          <span class="skill-tag">Turkish (Native)</span><span class="skill-tag">English (B2–C1 · YDS: 81)</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-label" data-i18n="grp-lang">// Languages</div>
+        <div class="skills-tags">
+          <span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span><span class="skill-tag">SQL</span><span class="skill-tag">C#</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-label" data-i18n="grp-frontend">// Frontend</div>
+        <div class="skills-tags">
+          <span class="skill-tag">React</span><span class="skill-tag">Next.js</span><span class="skill-tag">HTML/CSS</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-label" data-i18n="grp-backend">// Backend & Infra</div>
+        <div class="skills-tags">
+          <span class="skill-tag">Node.js</span><span class="skill-tag">Express</span><span class="skill-tag">Flask</span><span class="skill-tag">Django REST Framework</span>
+          <span class="skill-tag">PostgreSQL</span><span class="skill-tag">REST API Design</span><span class="skill-tag">Docker</span><span class="skill-tag">CI/CD</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-label" data-i18n="grp-ai">// AI & ML</div>
+        <div class="skills-tags">
+          <span class="skill-tag">OpenAI API</span><span class="skill-tag">LangChain</span><span class="skill-tag">RAG</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Machine Learning</span><span class="skill-tag">Deep Learning</span><span class="skill-tag">CNNs</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-label" data-i18n="grp-data">// Data & Analytics</div>
+        <div class="skills-tags">
+          <span class="skill-tag">Pandas</span><span class="skill-tag">PySpark</span><span class="skill-tag">Apache Airflow</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-label" data-i18n="grp-tools">// Tools & Practices</div>
+        <div class="skills-tags">
+          <span class="skill-tag">Git & GitHub</span><span class="skill-tag">Docker</span><span class="skill-tag">Postman</span><span class="skill-tag">JIRA</span><span class="skill-tag">A/B Testing</span><span class="skill-tag">Requirements Analysis</span><span class="skill-tag">Cursor</span><span class="skill-tag">Claude Code</span><span class="skill-tag">MCP Servers</span><span class="skill-tag">Antigravity</span>
+        </div>
       </div>
     </div>
   </div>
@@ -211,26 +278,26 @@
 
 <section id="contact">
   <div class="section-header">
-    <span class="section-num">05</span>
-    <h2 class="section-title">Let's Talk</h2>
+    <span class="section-num">04</span>
+    <h2 class="section-title" data-i18n="title-contact">Let's Talk</h2>
   </div>
   <div class="contact-layout">
     <div>
-      <p class="contact-intro">Open to backend and fullstack roles. Also happy to talk about freelance projects, collaborations, or just geek out over system design.</p>
+      <p class="contact-intro" data-i18n="contact-intro">Available for opportunities. Also happy to talk about freelance projects, collaborations, or just geek out over system design.</p>
       <a href="mailto:dilara.dcelik@gmail.com" class="contact-email">dilara.dcelik@gmail.com</a>
     </div>
     <div class="social-links">
-      <a href="https://tiktok.com/@withlaara" class="social-link">
+      <!-- <a href="https://tiktok.com/@withlaara" class="social-link">
         <span class="social-name">TikTok</span><span class="social-handle">@withlaara</span>
       </a>
       <a href="https://instagram.com/withlaara" class="social-link">
         <span class="social-name">Instagram</span><span class="social-handle">@withlaara</span>
+      </a> -->
+      <a href="https://www.linkedin.com/in/dilaracelikk/" class="social-link">
+        <span class="social-name">LinkedIn</span><span class="social-handle">Dilara Çelik</span>
       </a>
       <a href="https://github.com/dilaraacelik" class="social-link">
         <span class="social-name">GitHub</span><span class="social-handle">github.com/dilaraacelik</span>
-      </a>
-      <a href="https://www.linkedin.com/in/dilaracelikk/" class="social-link">
-        <span class="social-name">LinkedIn</span><span class="social-handle">Dilara Çelik</span>
       </a>
     </div>
   </div>

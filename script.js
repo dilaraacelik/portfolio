@@ -36,9 +36,6 @@ document.querySelectorAll(
 // Hero name reveal
 const heroName = document.querySelector('.hero-name');
 if (heroName) {
-  heroName.querySelectorAll('span, br').forEach((node) => {
-    if (node.tagName === 'BR') return;
-  });
   heroName.style.opacity = '1';
   heroName.classList.add('hero-reveal');
 }
@@ -74,3 +71,94 @@ const statObserver = new IntersectionObserver(
 document.querySelectorAll('.stat-num').forEach((el) => {
   if (/^\d/.test(el.textContent.trim())) statObserver.observe(el);
 });
+
+// Language toggle
+const translations = {
+  en: {
+    'nav-projects': 'Projects',
+    'nav-experience': 'Experience',
+    'nav-skills': 'Skills',
+    'nav-contact': 'Contact',
+    'hero-eyebrow': '— AVAILABLE FOR OPPORTUNITIES',
+    'btn-primary': 'See My Work',
+    'btn-ghost': 'Get in touch →',
+    'title-projects': 'Projects',
+    'title-experience': 'Experience',
+    'title-skills': 'Skills & Stack',
+    'title-contact': "Let's Talk",
+    'skills-intro': 'I work across the full stack with a preference for the backend. I enjoy designing systems before writing code.',
+    'grp-spoken': '// Spoken Languages',
+    'grp-lang': '// Languages',
+    'grp-frontend': '// Frontend',
+    'grp-backend': '// Backend & Infra',
+    'grp-ai': '// AI & ML',
+    'grp-data': '// Data & Analytics',
+    'grp-tools': '// Tools & Practices',
+    'desc-freelancekit': 'AI-powered proposal generator and client tracker for freelancers. Cuts proposal writing time by 80%.',
+    'desc-shoto': 'Desktop tool for AI-generated YouTube Shorts content. Built with Tauri + FastAPI sidecar architecture.',
+    'desc-moodtracker': 'Full-stack mood tracking web application that allows users to log daily emotions, view analytics, and track emotional patterns over time. Built with Next.js, TypeScript, and Supabase.',
+    'desc-recommendation': 'Content-based recommendation system for books, series, and movies. Users get personalized suggestions based on item similarity.',
+    'desc-moodfit': 'AI-powered outfit assistant that recommends outfits based on mood, weather, activity, and social context. Integrates Google Gemini AI and real-time weather data to suggest personalized combinations.',
+    'desc-gokizci': 'Anomaly detection system for moving drone footage. Predicts future frames via a CNN Encoder–Transformer–Decoder pipeline and scores anomalies through a GAN Discriminator. Trained on VisDrone, UAV Benchmark, and ERA datasets — achieving 0.974 precision and 0.900 PR AUC across 4,762 video sequences.',
+    'exp-insider': '<li>Conducted requirements analysis with 500+ external partners, translating business needs into technical specifications and driving 20+ campaign integrations end-to-end using HTML, CSS, and JavaScript.</li><li>Built a task grooming automation using TypeScript to streamline sprint planning workflows, reducing manual overhead for the team.</li><li>Identified and resolved production-level UI and behavioral issues, reducing critical user flow errors by 30% and improving overall product stability.</li><li>Implemented personalized content experiences using client-side data, cookie-based logic, and API integrations; supported 10+ A/B tests, contributing to a 10–15% increase in campaign CTR.</li><li>Acted as primary technical point of contact between internal teams and external stakeholders, ensuring alignment on scope, timelines, and delivery.</li>',
+    'exp-blaq': '<li>Served as the primary developer on a UK-based web application used by 50+ organizations, managing requirements gathering, technical decisions, and delivery in direct collaboration with the client.</li><li>Built two full-stack projects end-to-end using React, Next.js, Django REST Framework, and PostgreSQL covering API design, data modeling, and frontend implementation.</li><li>Developed browser extensions focused on usability improvements, iterating on user feedback to enhance experience and performance.</li>',
+    'exp-treomind': '<li>Built and automated ETL pipelines using PySpark and Apache Airflow, covering data cleaning, transformation, and workflow scheduling.</li><li>Conducted exploratory data analysis using SQL to support data integrity assessments across pipeline outputs.</li>',
+    'exp-gazi': "<li>Grew the community to 500+ members; delivered technical training sessions on Convolutional Neural Networks (CNNs) as an instructor.</li><li>Secured sponsorships and organized the community's first large-scale event.</li>",
+    'contact-intro': 'Available for opportunities. Also happy to talk about freelance projects, collaborations, or just geek out over system design.',
+  },
+  tr: {
+    'nav-projects': 'Projeler',
+    'nav-experience': 'Deneyim',
+    'nav-skills': 'Yetenekler',
+    'nav-contact': 'İletişim',
+    'hero-eyebrow': '— FIRSATLARA AÇIĞIM',
+    'btn-primary': 'Çalışmalarımı Gör',
+    'btn-ghost': 'İletişime Geç →',
+    'title-projects': 'Projeler',
+    'title-experience': 'Deneyim',
+    'title-skills': 'Yetenekler & Teknolojiler',
+    'title-contact': 'İletişime Geçelim',
+    'skills-intro': 'Backend ağırlıklı full-stack geliştirici olarak çalışıyorum. Kod yazmadan önce sistem tasarlamayı severim.',
+    'grp-spoken': '// Konuşulan Diller',
+    'grp-lang': '// Programlama Dilleri',
+    'grp-frontend': '// Frontend',
+    'grp-backend': '// Backend & Altyapı',
+    'grp-ai': '// Yapay Zeka & ML',
+    'grp-data': '// Veri & Analitik',
+    'grp-tools': '// Araçlar & Pratikler',
+    'desc-freelancekit': 'Serbest çalışanlar için AI destekli teklif oluşturucu ve müşteri takip aracı. Teklif yazma süresini %80 azaltır.',
+    'desc-shoto': 'AI ile YouTube Shorts içeriği üretmek için masaüstü aracı. Tauri + FastAPI sidecar mimarisiyle geliştirildi.',
+    'desc-moodtracker': 'Kullanıcıların günlük duygularını kaydedebildiği, analizleri görüntüleyebildiği ve zaman içindeki duygusal örüntüleri takip edebildiği tam yığın ruh hali takip uygulaması.',
+    'desc-recommendation': 'Kitap, dizi ve filmler için içerik tabanlı öneri sistemi. Kullanıcılar öğe benzerliğine dayalı kişiselleştirilmiş öneriler alır.',
+    'desc-moodfit': 'Ruh hali, hava durumu, etkinlik ve sosyal bağlama göre kıyafet öneren AI destekli stil asistanı. Google Gemini AI ve gerçek zamanlı hava durumu verileriyle kişiselleştirilmiş kombinler önerir.',
+    'desc-gokizci': 'Hareketli drone görüntülerinden anomali tespit sistemi. CNN Encoder–Transformer–Decoder hattıyla gelecek kareyi tahmin eder, GAN Discriminator ile anomali skoru üretir. VisDrone, UAV Benchmark ve ERA veri setleriyle eğitildi — 4.762 video sekansında 0.974 precision ve 0.900 PR AUC elde etti.',
+    'exp-insider': '<li>500\'den fazla harici iş ortağıyla gereksinim analizi yürüttü; iş ihtiyaçlarını teknik spesifikasyonlara dönüştürerek HTML, CSS ve JavaScript kullanarak 20\'den fazla kampanya entegrasyonunu uçtan uca teslim etti.</li><li>Sprint planlama süreçlerini kolaylaştırmak için TypeScript ile görev düzenleme otomasyonu geliştirdi, ekibin manuel iş yükünü azalttı.</li><li>Üretim ortamındaki UI ve davranışsal sorunları tespit ederek çözdü; kritik kullanıcı akışı hatalarını %30 azaltarak ürün kararlılığını artırdı.</li><li>İstemci tarafı veri, çerez tabanlı mantık ve API entegrasyonları kullanarak kişiselleştirilmiş içerik deneyimleri uyguladı; 10\'dan fazla A/B testini destekleyerek kampanya CTR\'ını %10–15 artırdı.</li><li>İç ekipler ve dış paydaşlar arasında birincil teknik iletişim noktası olarak görev yaparak kapsam, zaman çizelgesi ve teslimat konusunda uyumu sağladı.</li>',
+    'exp-blaq': '<li>50\'den fazla kuruluş tarafından kullanılan İngiltere merkezli bir web uygulamasında birincil geliştirici olarak görev yaptı; müşteriyle doğrudan iş birliği içinde gereksinim toplama, teknik kararlar ve teslimatı yönetti.</li><li>React, Next.js, Django REST Framework ve PostgreSQL kullanarak API tasarımı, veri modelleme ve frontend uygulamasını kapsayan iki full-stack projeyi uçtan uca geliştirdi.</li><li>Kullanıcı deneyimini ve performansı artırmak amacıyla kullanıcı geri bildirimlerini iteratif şekilde değerlendirerek kullanılabilirlik odaklı tarayıcı eklentileri geliştirdi.</li>',
+    'exp-treomind': '<li>PySpark ve Apache Airflow kullanarak veri temizleme, dönüştürme ve iş akışı planlamasını kapsayan ETL boru hatları oluşturdu ve otomatikleştirdi.</li><li>Boru hattı çıktılarında veri bütünlüğü değerlendirmelerini desteklemek amacıyla SQL ile keşifsel veri analizi gerçekleştirdi.</li>',
+    'exp-gazi': '<li>Topluluğu 500\'den fazla üyeye büyüttü; eğitmen olarak Evrişimli Sinir Ağları (CNN) üzerine teknik eğitim oturumları verdi.</li><li>Sponsorluk sağladı ve topluluğun ilk büyük ölçekli etkinliğini organize etti.</li>',
+    'contact-intro': 'Yeni fırsatlara açığım. Freelance projeler, iş birlikleri ya da sistem tasarımı üzerine sohbet etmekten de memnuniyet duyarım.',
+  }
+};
+
+let currentLang = localStorage.getItem('lang') || 'en';
+
+function applyLang(lang) {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang][key] !== undefined) el.textContent = translations[lang][key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (translations[lang][key] !== undefined) el.innerHTML = translations[lang][key];
+  });
+  const btn = document.getElementById('lang-btn');
+  if (btn) btn.textContent = lang === 'en' ? 'TR' : 'EN';
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+}
+
+function toggleLang() {
+  applyLang(currentLang === 'en' ? 'tr' : 'en');
+}
+
+if (currentLang === 'tr') applyLang('tr');

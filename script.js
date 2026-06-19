@@ -1,3 +1,13 @@
+// Hamburger menu toggle
+const navToggle = document.getElementById('nav-toggle');
+const navEl = document.querySelector('nav');
+if (navToggle) {
+  navToggle.addEventListener('click', () => navEl.classList.toggle('nav-open'));
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => navEl.classList.remove('nav-open'));
+  });
+}
+
 // Active nav link on scroll
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
